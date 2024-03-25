@@ -1,4 +1,7 @@
 import type { Metadata } from 'next'
+import Header from '@/components/Header'
+import { ThemeProvider } from '@/components/theme-provider'
+
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -34,7 +37,12 @@ export default function RootLayout({
                     href='/favicon/favicon-16x16.png'
                 />
             </head>
-            <body>{children}</body>
+            <body className='bg-white dark:bg-black'>
+                <ThemeProvider attribute='class' defaultTheme='system'>
+                    <Header />
+                    {children}
+                </ThemeProvider>
+            </body>
         </html>
     )
 }
