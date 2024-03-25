@@ -37,8 +37,12 @@ export default function RootLayout({
                     href='/favicon/favicon-16x16.png'
                 />
             </head>
-            <body className='bg-white dark:bg-black'>
-                <ThemeProvider attribute='class' defaultTheme='system'>
+            <body className='bg-white dark:bg-dbg'>
+                <ThemeProvider
+                    attribute='class'
+                    defaultTheme='system'
+                    enableSystem
+                    disableTransitionOnChange>
                     <Header />
                     {children}
                 </ThemeProvider>
