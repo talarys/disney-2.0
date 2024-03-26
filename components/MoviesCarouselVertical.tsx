@@ -7,7 +7,7 @@ type Props = {
 }
 const MoviesCarouselVertical = ({ movies, title }: Props) => {
 	return (
-		<div className="z-50">
+		<div className="z-30">
 			<h2 className="text-xl font-bold px-10 py-2">{title}</h2>
 
 			<div
