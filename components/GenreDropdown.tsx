@@ -1,4 +1,4 @@
-import { Genres } from "@/typings"
+import type { Genres } from "@/typings"
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -32,7 +32,7 @@ const GenreDropdown = async () => {
 			<DropdownMenuContent>
 				<DropdownMenuLabel>Select a Genre</DropdownMenuLabel>
 				<DropdownMenuSeparator />
-				{data.genres.map((genre) => (
+				{data.genres.map(genre => (
 					<Link key={genre.id} href={`/genre/${genre.id}?genre=${genre.name}`}>
 						<DropdownMenuItem>{genre.name}</DropdownMenuItem>
 					</Link>

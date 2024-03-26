@@ -1,4 +1,4 @@
-import { SearchResults } from "@/typings"
+import type { SearchResults } from "@/typings"
 
 async function fetchFromTMDB(url: URL, cacheTime?: number) {
 	url.searchParams.set("include_adult", "false")
@@ -33,7 +33,7 @@ export async function getMovieLogo(id: string | number) {
 			Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
 		},
 		next: {
-			revalidate: 60,
+			revalidate: 60 * 60 * 24,
 		},
 	}
 	const response = await fetch(url.toString(), options)

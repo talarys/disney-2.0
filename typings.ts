@@ -30,3 +30,13 @@ export type Genre = {
 export type Genres = {
 	genres: Genre[]
 }
+
+export type MovieLogos = {
+	logos: MovieLogo[]
+}
+
+export type MovieLogo = {
+	iso_639_1: string
+	file_path: string
+	aspect_ratio: number
+}
