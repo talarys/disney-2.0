@@ -1,4 +1,4 @@
-import { Movie } from "@/typings"
+import type { Movie } from "@/typings"
 import MovieCard from "./MovieCard"
 
 type Props = {
