@@ -1,5 +1,5 @@
 import type { Movie } from "@/typings"
-import MovieCard from "./MovieCard"
+import MovieCardVertical from "./MovieCardVertical"
 
 type Props = {
 	title?: string
@@ -16,7 +16,7 @@ const MoviesCarousel = ({ movies, title }: Props) => {
 				}
 			>
 				{movies?.map(movie => (
-					<MovieCard key={movie.id} movie={movie} />
+					<MovieCardVertical key={movie.id} movie={movie} />
 				))}
 			</div>
 		</div>
