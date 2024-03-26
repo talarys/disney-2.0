@@ -4,10 +4,12 @@ import useEmblaCarousel from "embla-carousel-react"
 import Autoplay from "embla-carousel-autoplay"
 import Image from "next/image"
 import { getImagePath } from "@/lib/getImagePath"
+import { useModal } from "@/lib/useModal"
 
 Autoplay.globalOptions = { delay: 8000 }
 
 const CarouselsBanner = ({ movies }: { movies: Movie[] }) => {
+	const { openModal, setMovie } = useModal()
 	const [emblaRef] = useEmblaCarousel({ loop: true, duration: 100 }, [
 		Autoplay(),
 	])
@@ -15,7 +17,14 @@ const CarouselsBanner = ({ movies }: { movies: Movie[] }) => {
 		<div className="overflow-hidden  relative cursor-pointer" ref={emblaRef}>
 			<div className="flex">
 				{movies.map(movie => (
-					<div className="flex-[0_0_100%] min-w-0 relative">
+					<div
+						key={movie.title}
+						onClick={() => {
+							setMovie(movie)
+							openModal()
+						}}
+						className="flex-[0_0_100%] min-w-0 relative"
+					>
 						<div className="absolute inset-0 h-full w-full bg-gradient-to-r from-gray-900/20 to-transparent  " />
 						<div className="absolute inset-0 bg-gradient-to-b from-gray-200/0 via-gray-900/25 to-[#020817] " />
 						<Image

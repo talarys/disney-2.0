@@ -82,3 +82,4 @@ export async function getMovieRecommendations(id: number | string) {
 	const data = await fetchFromTMDB(url)
 	return data.results
 }
+

@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 
 import "./globals.css"
+import { Modal } from "@/components/Modal"
 
 const fontSans = FontSans({
 	subsets: ["latin"],
@@ -49,6 +50,7 @@ export default function RootLayout({
 			>
 				<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 					<Header />
+					<Modal />
 					{children}
 				</ThemeProvider>
 			</body>
