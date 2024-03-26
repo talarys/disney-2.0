@@ -1,5 +1,5 @@
 import { getImagePath } from "@/lib/getImagePath"
-import { Movie } from "@/typings"
+import type { Movie } from "@/typings"
 import Image from "next/image"
 
 const MovieCard = ({ movie }: { movie: Movie }) => {
