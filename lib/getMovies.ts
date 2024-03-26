@@ -24,6 +24,23 @@ async function fetchFromTMDB(url: URL, cacheTime?: number) {
 	return data
 }
 
+export async function getMovieLogo(id: string | number) {
+	const url = new URL(`https://api.themoviedb.org/3/movie/${id}/images`)
+	const options: RequestInit = {
+		method: "GET",
+		headers: {
+			accept: "application/json",
+			Authorization: `Bearer ${process.env.TMDB_API_KEY}`,
+		},
+		next: {
+			revalidate: 60,
+		},
+	}
+	const response = await fetch(url.toString(), options)
+	const data = await response.json()
+	return data
+}
+
 export async function getUpcomingMovies() {
 	const url = new URL("https://api.themoviedb.org/3/movie/upcoming")
 	const data = await fetchFromTMDB(url)
