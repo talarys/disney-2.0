@@ -1,6 +1,10 @@
 import MoviesCarousel from "@/components/MoviesCarousel"
 import MoviesCarouselVertical from "@/components/MoviesCarouselVertical"
-import { getPopularMovies, getSearchedMovies } from "@/lib/getMovies"
+import {
+	getMovieRecommendations,
+	getPopularMovies,
+	getSearchedMovies,
+} from "@/lib/getMovies"
 import { notFound } from "next/navigation"
 
 type Props = {
@@ -14,10 +18,15 @@ const SearchPage = async ({ params: { term } }: Props) => {
 
 	const movies = await getSearchedMovies(term)
 	const popularMovies = await getPopularMovies()
+	const recommendations = await getMovieRecommendations(movies[0].id)
 
 	return (
-		<div className="max-w-7xl mx-auto">
-			<div className="flex flex-col space-y-4 mt-32">
+		<div className="max-w-7xl mx-auto mt-32">
+			<div className="mt-10 mb-10">
+				<h1 className="text-6xl font-bold px-10">Recommendations</h1>
+				<MoviesCarousel movies={recommendations} />
+			</div>
+			<div className="flex flex-col space-y-4">
 				<h1 className="text-6xl font-bold px-10">Results for {term}</h1>
 				<MoviesCarouselVertical movies={movies} />
 			</div>

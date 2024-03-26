@@ -1,7 +1,7 @@
 import type { SearchResults } from "@/typings"
 
 async function fetchFromTMDB(url: URL, cacheTime?: number) {
-	url.searchParams.set("include_adult", "false")
+	// url.searchParams.set("include_adult", "false")
 	url.searchParams.set("include_video", "false")
 	url.searchParams.set("sort_by", "popularity.desc")
 	url.searchParams.set("language", "en-US")
@@ -71,6 +71,14 @@ export async function getSearchedMovies(term: string) {
 
 	url.searchParams.set("query", term)
 
+	const data = await fetchFromTMDB(url)
+	return data.results
+}
+
+export async function getMovieRecommendations(id: number | string) {
+	const url = new URL(
+		`https://api.themoviedb.org/3/movie/${id}/recommendations`,
+	)
 	const data = await fetchFromTMDB(url)
 	return data.results
 }
