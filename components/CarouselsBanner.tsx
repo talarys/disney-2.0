@@ -25,7 +25,7 @@ const CarouselsBanner = ({ movies }: { movies: Movie[] }) => {
 							width={2560}
 							height={1440}
 						/>
-						<div className="hidden md:inline absolute bottom-10 2xl:bottom-[400px] z-20 p-10 space-y-5 text-white  ">
+						<div className="hidden md:inline absolute bottom-10 2xl:bottom-[460px] z-20 p-10 space-y-5 text-white  ">
 							<h2 className="text-5xl font-bold max-w-xl z-50">
 								{movie.title}
 							</h2>
